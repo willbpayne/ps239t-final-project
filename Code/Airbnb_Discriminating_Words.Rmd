@@ -1,0 +1,62 @@
+---
+title: "Discriminating Words"
+author: "PS239T"/Will Payne
+date: "Fall 2015"
+output: html_document
+---
+
+### Setup Environment
+
+```{r message=FALSE}
+setwd("/Users/willbpayne/Documents/GitHub/PS239T/11_text-analysis") # change this to yours
+rm(list=ls())
+library(tm)
+library(RTextTools) # a machine learning package for text classification written in R
+library(SnowballC) # for stemming
+library(matrixStats) # for statistics
+```
+
+### Prepare Corpus
+
+```{r}
+docs <- Corpus(DirSource("Data/Airbnb_Cities")) # pull in all the CSVs from this folder
+docs # check to make sure it imported correctly
+dtm <- DocumentTermMatrix(docs, # turn this corpus into a document term matrix (dtm)
+           control = list(stopwords = T, # get rid of stopwords
+                          tolower = TRUE, # convert everything to lower-case
+                          removeNumbers = TRUE, # no numbers
+                          removePunctuation = TRUE, # no punctuation
+                          stemming=TRUE)) # stemming this time since no wordclouds
+dim(dtm) # check dimensions of the dtm
+inspect(dtm[,100:104]) # test it out
+```
+
+### Standardized Mean Difference
+
+A nuanced comparison of word use in two groups takes account of the variability in word use. The following analysis takes variation into account.
+
+```{r}
+# start with turning dtm into dataframe
+dtm.m <- as.data.frame(as.matrix(dtm))
+dtm.m[,1:5]
+
+# Subset into 2 dtms, one for each city
+nyc <- dtm.m[1:61,]
+sf <- dtm.m[62:101,]
+
+# calculate means and vars for each city
+means.nyc <- colMeans(nyc)
+var.nyc <- colVars(as.matrix(nyc))
+means.sf <- colMeans(sf)
+var.sf <- colVars(as.matrix(sf))
+  
+# calculate overall score for each word
+num <- (means.nyc - means.sf) 
+denom <- sqrt((var.nyc/61) + (var.sf/40))
+score <- num / denom
+
+# sort and view words
+score <- sort(score)
+head(score,25) # top sf words
+tail(score,25) # top nyc words
+```

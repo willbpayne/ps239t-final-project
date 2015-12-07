@@ -1,0 +1,79 @@
+---
+title: "AirbnbTextAnalysisCode"
+output: html_document
+---
+
+```{r}
+setwd("/Users/willbpayne/Documents/GitHub/PS239T/11_text-analysis/AirbnbTextAnalysisProject")
+rm(list=ls())
+suppressMessages(library(tm)) # Framework for text mining
+suppressMessages(library(RTextTools)) # a machine learning package for text classification written in R
+suppressMessages(library(qdap)) # Quantiative discourse analysis of transcripts
+suppressMessages(library(qdapDictionaries))
+suppressMessages(library(dplyr)) # Data preparation and pipes $>$
+suppressMessages(library(ggplot2)) # for plotting word frequencies
+suppressMessages(library(SnowballC)) # for stemming
+suppressMessages(library(data.table)) # for easier data manipulation
+suppressMessages(library(scales)) # to help us plot
+```
+
+```{r}
+docs <- Corpus(DirSource("Berlin")) # Choose the folder for the city to analyze
+```
+
+```{r}
+as.character(docs[[8]]) #check to make sure it imported correctly, see the 8th document
+```
+
+```{r}
+dtm <- DocumentTermMatrix(docs,
+           control = list(stopwords = TRUE, #removed noise words
+                          tolower = TRUE, #made all lower case
+                          removeNumbers = TRUE, #no numbers
+                          removePunctuation = TRUE, #no punctuation
+                          stemming=FALSE)) #see intro for reasoning
+```
+
+```{r}
+# how many terms?
+freq <- colSums(as.matrix(dtm))
+length(freq)
+```
+
+```{r}
+# order the terms by frequency
+ord <- order(freq)
+
+# Least frequent terms
+freq[head(ord)]
+
+# most frequent
+freq[tail(ord)]
+
+# frequency of frenquencies
+head(table(freq),15)
+tail(table(freq),15)
+
+```
+
+```{r}
+dtm.ordered <- dtm[,order(freq, decreasing = T)]
+inspect(dtm.ordered[1:5,1:10])
+```
+
+```{r}
+# list the most frequent words
+freq <- sort(colSums(as.matrix(dtm)),decreasing=TRUE)
+head(freq)
+freq[1:20]
+
+# NOTE: this code writes a csv to do more manual work on clustering words if you want
+# wf <- data.frame(word=names(freq), freq=freq)
+# head(wf)
+# write.csv(wf, file = "AirbnbWordFrequency.csv")
+
+# wordcloud!
+library(wordcloud)
+set.seed(123)
+wordcloud(names(freq), freq, max.words=75, colors=brewer.pal(10,"Dark2"))
+```
