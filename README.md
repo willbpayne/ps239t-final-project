@@ -41,9 +41,11 @@ Note: #2 and #3 draw heavily on code written by Rochelle Terman for the [PS239T 
 ## More Information
 
 **Contact info:**  
+
 Will Payne  
 PhD student, [Geography, UC Berkeley](http://geography.berkeley.edu/people/graduate-students/willbpayne/)  
 <willbpayne@berkeley.edu>  
 [Twitter](https://twitter.com/willbpayne) | [Academia.edu](https://berkeley.academia.edu/WillBPayne)
 
-Credit: This project was initially created for the [PS239T course](https://github.com/rochelleterman/PS239T) at UC Berkeley in Fall 2015 taught by [Rochelle Terman](https://github.com/rochelleterman/), and as noted above draws extensively from her code for text analysis in R.
+**Credit:**
+This project was initially created for the [PS239T course](https://github.com/rochelleterman/PS239T) at UC Berkeley in Fall 2015 taught by [Rochelle Terman](https://github.com/rochelleterman/), and as noted above draws extensively from her code for text analysis in R.
