@@ -30,6 +30,8 @@ This is my final project for PS239T, in which I use web scraping and text analys
 2. **Airbnb_Discriminating_Words.Rmd**: Conducts discriminating words analysis on neighborhood descriptions between New York (61 neighborhoods) and San Francisco (42 neighborhoods).
 3. **Airbnb_Wordcloud.Rmd**: Creates wordclouds of description text for a given Airbnb city.
 
+Note: #2 and #3 draw heavily on code written by Rochelle Terman for the [PS239T course](https://github.com/rochelleterman/PS239T) at UC Berkeley in Fall 2015.
+
 #### Results
 
 1. **Presentation.key:** Keynote presentation summarizing project, methods, and results.
@@ -43,3 +45,5 @@ Will Payne
 PhD student, [Geography, UC Berkeley](http://geography.berkeley.edu/people/graduate-students/willbpayne/)  
 <willbpayne@berkeley.edu>  
 [Twitter](https://twitter.com/willbpayne) | [Academia.edu](https://berkeley.academia.edu/WillBPayne)
+
+Credit: This project was initially created for the [PS239T course](https://github.com/rochelleterman/PS239T) at UC Berkeley in Fall 2015 taught by Rochelle Terman, and as noted above draws extensively from her code for text analysis in R.
