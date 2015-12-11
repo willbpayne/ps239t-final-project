@@ -13,7 +13,7 @@ This is my final project for PS239T, in which I use web scraping and text analys
 
 #### Data
 
-**1. Discriminating_words_cities:** Set of CSV files resulting from webscraping of Airbnb neighborhood description pages in New York and San Francisco, with the following variable names (all strings or lists of strings):
+1. **Discriminating_words_cities:** Set of CSV files resulting from webscraping of Airbnb neighborhood description pages in New York and San Francisco, with the following variable names (all strings or lists of strings):
     - *Name*: Neighborhood name
     - *Lede*: One-sentence summary of the neighborhood page.
     - *Official_Tags*: Tags applied by Airbnb staff to the neighborhood (from a set of 18 total, with every city including tags for "Peace & Quiet," "Nightlife," "Shopping," "Dining," some variant on "Loved by Locals," and "Touristy")
@@ -22,19 +22,19 @@ This is my final project for PS239T, in which I use web scraping and text analys
     - *Photo_Headers*: Headers for sections of photos (e.g. "The Mission District: It's Complicated").
     - *Photo_Captions*: Captions for individual photos (e.g. the totally ridiculous sentence "The Mission District's streets are more than names and numbers. They often serve as geographic indicators when answering the question, "Will I find amusement or will I feel apprehensive?")
     - *Block_Quotes*: Full text of any block quotes on the page, except the descriptions of the individual contributing photographers (since those are often shared between neighborhood, throwing off text analysis).
-**2. Wordcloud_cities:** Same as above but containing folders representing all eight cities examined in the wordcloud analysis: Austin, Berlin, Boston, DC, LA, Miami, NYC, and SF. Using the Airbnb_Wordcloud.Rmd file below, changing the working directory results in a wordcloud for the given city.
+2. **Wordcloud_cities:** Same as above but containing folders representing all eight cities examined in the wordcloud analysis: Austin, Berlin, Boston, DC, LA, Miami, NYC, and SF. Using the Airbnb_Wordcloud.Rmd file below, changing the working directory results in a wordcloud for the given city.
   
 #### Code
 
-**1. Webscraping_Airbnb_Neighborhoods.py**: Collects data from neighborhood description pages on Airbnb using Beautiful Soup and adds them to individual CSV files for each neighborhood. 
-**2. Airbnb_Discriminating_Words.Rmd**: Conducts discriminating words analysis on neighborhood descriptions between New York (61 neighborhoods) and San Francisco (42 neighborhoods).
-**3. Airbnb_Wordcloud.Rmd**: Creates wordclouds of description text for a given Airbnb city.
+1. **Webscraping_Airbnb_Neighborhoods.py**: Collects data from neighborhood description pages on Airbnb using Beautiful Soup and adds them to individual CSV files for each neighborhood. 
+2. **Airbnb_Discriminating_Words.Rmd**: Conducts discriminating words analysis on neighborhood descriptions between New York (61 neighborhoods) and San Francisco (42 neighborhoods).
+3. **Airbnb_Wordcloud.Rmd**: Creates wordclouds of description text for a given Airbnb city.
 
 #### Results
 
-**1. Presentation.key:** Keynote presentation summarizing project, methods, and results.
-**2. Presentation.pdf:** PDF version of results presentation.
-**3. Wordclouds:** Folder of eight PNG files showing final wordclouds for neighborhood descriptions in each of the following cities: Austin, Berlin, Boston, DC, LA, Miami, NYC, and SF.
+1. **Presentation.key:** Keynote presentation summarizing project, methods, and results.
+2. **Presentation.pdf:** PDF version of results presentation.
+3. **Wordclouds:** Folder of eight PNG files showing final wordclouds for neighborhood descriptions in each of the following cities: Austin, Berlin, Boston, DC, LA, Miami, NYC, and SF.
 
 ## More Information
 
